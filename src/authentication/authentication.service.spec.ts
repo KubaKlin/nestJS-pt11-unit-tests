@@ -71,7 +71,9 @@ describe('The AuthenticationService', () => {
 
     describe('and the password is hashed successfully', () => {
       beforeEach(() => {
-        (bcrypt.hash as unknown as jest.Mock).mockResolvedValue('hashedPassword');
+        (bcrypt.hash as unknown as jest.Mock).mockResolvedValue(
+          'hashedPassword',
+        );
         usersServiceCreateMock.mockResolvedValue({
           id: 1,
           email: signUpDto.email,
@@ -127,7 +129,8 @@ describe('The AuthenticationService', () => {
       });
 
       it('should return the user', async () => {
-        const result = await authenticationService.getAuthenticatedUser(logInDto);
+        const result =
+          await authenticationService.getAuthenticatedUser(logInDto);
         expect(result).toBe(user);
       });
     });
@@ -184,5 +187,3 @@ describe('The AuthenticationService', () => {
     });
   });
 });
-
-

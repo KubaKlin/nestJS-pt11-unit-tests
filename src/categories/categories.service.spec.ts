@@ -96,7 +96,10 @@ describe('The CategoriesService', () => {
       createCategoryDto = {
         name: 'Science',
       };
-      categoryCreateMock.mockResolvedValue({ id: 1, name: createCategoryDto.name });
+      categoryCreateMock.mockResolvedValue({
+        id: 1,
+        name: createCategoryDto.name,
+      });
     });
 
     it('should create the category', async () => {
@@ -122,7 +125,10 @@ describe('The CategoriesService', () => {
 
     describe('and prisma updates the category', () => {
       beforeEach(() => {
-        categoryUpdateMock.mockResolvedValue({ id: 1, name: updateCategoryDto.name });
+        categoryUpdateMock.mockResolvedValue({
+          id: 1,
+          name: updateCategoryDto.name,
+        });
       });
 
       it('should return the updated category', async () => {
@@ -182,5 +188,3 @@ describe('The CategoriesService', () => {
     });
   });
 });
-
-

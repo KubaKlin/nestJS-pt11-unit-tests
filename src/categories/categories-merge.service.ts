@@ -23,7 +23,9 @@ export class CategoriesMergeService {
     // Everything else in the group is treated as a duplicate.
     const duplicateCategories = categories.slice(1);
     // Delete all duplicates after transferring article relations.
-    const duplicateCategoryIds = duplicateCategories.map((category) => category.id);
+    const duplicateCategoryIds = duplicateCategories.map(
+      (category) => category.id,
+    );
 
     // Track articles already connected to the canonical category.
     const existingArticleIds = new Set(

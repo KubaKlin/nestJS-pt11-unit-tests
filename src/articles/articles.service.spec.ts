@@ -377,7 +377,10 @@ describe('The ArticlesService', () => {
 
     describe('and matching articles exist', () => {
       beforeEach(() => {
-        transactionArticleFindManyMock.mockResolvedValue([{ id: 1 }, { id: 2 }]);
+        transactionArticleFindManyMock.mockResolvedValue([
+          { id: 1 },
+          { id: 2 },
+        ]);
         transactionArticleDeleteManyMock.mockResolvedValue({ count: 2 });
       });
 
@@ -449,5 +452,3 @@ describe('The ArticlesService', () => {
     });
   });
 });
-
-
