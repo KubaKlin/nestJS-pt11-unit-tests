@@ -83,8 +83,8 @@ describe('The AuthenticationService', () => {
         } satisfies User);
       });
 
-      it('should call UsersService.create with the hashed password and return created user', async () => {
-        const result = await authenticationService.signUp(signUpDto);
+      it('should call UsersService.create with the hashed password', async () => {
+        await authenticationService.signUp(signUpDto);
 
         expect(bcrypt.hash).toHaveBeenCalledWith(signUpDto.password, 10);
         expect(usersServiceCreateMock).toHaveBeenCalledWith({
@@ -93,6 +93,11 @@ describe('The AuthenticationService', () => {
           phoneNumber: signUpDto.phoneNumber,
           password: 'hashedPassword',
         });
+      });
+
+      it('should return created user', async () => {
+        const result = await authenticationService.signUp(signUpDto);
+
         expect(result).toEqual({
           id: 1,
           email: signUpDto.email,
